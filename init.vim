@@ -48,10 +48,7 @@ set noswapfile
 " }}}
 
 " Folding {{{
-set foldenable
-set foldnestmax=10
-set foldlevel=10
-set foldmethod=manual
+set nofoldenable
 " }}}
 
 " Splitting {{{
@@ -61,4 +58,4 @@ set splitbelow
 
 set modelines=1
 
-" vim:foldmethod=marker
+" vim:foldenable:foldmethod=marker:foldlevel=0
