@@ -6,6 +6,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'flowtype/vim-flow'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -16,6 +17,8 @@ call plug#end()
 
 " Plugins configuration {{{
 let g:javascript_plugin_flow = 1
+
+let g:flow#enable = 0
 "}}}
 
 " Searching {{{
