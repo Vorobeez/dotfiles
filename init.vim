@@ -3,10 +3,13 @@
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
+
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 " }}}
