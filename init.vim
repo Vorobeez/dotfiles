@@ -7,6 +7,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
+Plug 'scrooloose/nerdtree'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -61,6 +62,10 @@ set nofoldenable
 " Splitting {{{
 set splitright
 set splitbelow
+" }}}
+
+" Keys mapping {{{
+map <C-n> :NERDTreeToggle<CR>
 " }}}
 
 set modelines=1
