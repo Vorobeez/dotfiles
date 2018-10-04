@@ -33,7 +33,7 @@ set wildignore+=*/node_modules/*
 " }}}
 
 " Text {{{
-set formatoptions-=o
+set formatoptions-=ro
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
