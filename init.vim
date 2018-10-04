@@ -7,6 +7,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
+Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 
 Plug 'tpope/vim-surround'
@@ -20,6 +21,9 @@ call plug#end()
 let g:javascript_plugin_flow = 1
 
 let g:flow#enable = 0
+
+let g:ale_linters = { 'javascript': ['eslint', 'flow'] }
+let g:ale_echo_msg_format = '%linter% says %code: %%s'
 "}}}
 
 " Searching {{{
