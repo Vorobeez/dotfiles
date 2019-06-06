@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/plugins')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
