@@ -8,6 +8,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fireplace'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -42,6 +43,7 @@ set expandtab
 syntax on
 color dracula
 set wildmenu
+set wildignorecase
 set number
 set showcmd
 set showmatch " highlight matching [{()}]
