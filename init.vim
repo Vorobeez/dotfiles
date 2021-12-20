@@ -4,15 +4,14 @@ call plug#begin('~/.config/nvim/plugins')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fireplace'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 " }}}
@@ -66,6 +65,39 @@ set splitbelow
 
 " Keys mapping {{{
 map <C-n> :NERDTreeToggle<CR>
+" }}}
+
+" Lua {{{
+lua << EOF
+local lspconfig = require("lspconfig")
+local treeSitterConfigs = require("nvim-treesitter.configs")
+
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  local opts = { noremap=true, silent=true }
+
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+end
+
+lspconfig.tsserver.setup{
+  cmd = { "npx", "typescript-language-server", "--stdio" },
+  on_attach = on_attach,
+}
+
+treeSitterConfigs.setup{
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 " }}}
 
 set modelines=1
